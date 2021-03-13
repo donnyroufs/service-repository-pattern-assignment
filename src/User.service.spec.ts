@@ -14,14 +14,6 @@ describe('User service', () => {
     expect(userService.createUser).toBeDefined()
   })
 
-  it('Should throw an error when the username is shorter than 4 characters', async (done) => {
-    expect(async () => {
-      await userService.createUser({ username: 'hi' })
-    }).rejects.toThrow()
-
-    done()
-  })
-
   it('should call the createUser method on the userRepository when the createUser method on the service gets invoked', async (done) => {
     const spy = jest.spyOn(userService.userRepo, 'createUser')
     await userService.createUser({ username: 'John Doe' })
@@ -32,10 +24,16 @@ describe('User service', () => {
 
   it('Should return a created user', async (done) => {
     const createdUser = await userService.createUser({ username: 'John Doe' })
+    const createdUser2 = await userService.createUser({ username: 'Doe John' })
 
     expect(createdUser).toEqual({
       id: 1,
       username: 'John Doe',
+    })
+
+    expect(createdUser2).toEqual({
+      id: 1,
+      username: 'Doe John',
     })
 
     done()

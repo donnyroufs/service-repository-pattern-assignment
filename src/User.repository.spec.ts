@@ -6,7 +6,7 @@ describe('user repository', () => {
   let userRepo: UserRepository = new UserRepository()
 
   it('should have access to a database connection', () => {
-    expect(userRepo._db).toBeDefined()
+    expect(userRepo.db).toBeDefined()
   })
 
   it('should have a method called createUser', () => {
@@ -14,7 +14,7 @@ describe('user repository', () => {
   })
 
   it('should call the create method on the database when invoking the createUser method on userRepository', async (done) => {
-    const spy = jest.spyOn(userRepo._db, 'create')
+    const spy = jest.spyOn(userRepo.db, 'create')
     await userRepo.createUser({ username: 'John Doe' })
 
     expect(spy).toHaveBeenCalled()

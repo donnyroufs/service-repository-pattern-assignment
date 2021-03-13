@@ -3,6 +3,10 @@ export interface IUser {
   username: string
 }
 
+export interface UserRequestDto {
+  username: string
+}
+
 export interface IDatabaseState {
   users: IUser[]
 }

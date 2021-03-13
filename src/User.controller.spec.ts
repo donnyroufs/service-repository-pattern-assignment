@@ -10,6 +10,10 @@ class MockedUserService {
 describe('User Controller', () => {
   let userController = new UserController(new MockedUserService())
 
+  it('should have access to the user service', () => {
+    expect(userController.userService).toBeDefined()
+  })
+
   it('Should have a method called Store', () => {
     expect(userController.store).toBeDefined()
   })
@@ -24,8 +28,10 @@ describe('User Controller', () => {
 
   it('Should return a user with the name John Doe', async (done) => {
     const result = await userController.store({ username: 'John Doe' })
+    const result2 = await userController.store({ username: 'Doe John' })
 
     expect(result.username).toBe('John Doe')
+    expect(result2.username).toBe('Doe John')
     done()
   })
 })
