@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Database from './Database'
 
 import { UserRepository } from './User.repository'
@@ -32,7 +33,7 @@ describe('User service', () => {
     })
 
     expect(createdUser2).toEqual({
-      id: 1,
+      id: 2,
       username: 'Doe John',
     })
 

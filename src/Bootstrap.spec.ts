@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { userController } from './Bootstrap'
 
 describe('Bootstrap User Module', () => {
