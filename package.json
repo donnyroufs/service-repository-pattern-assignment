@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "Bootstrap.ts",
   "scripts": {
-    "run:dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only --no-notify -r tsconfig-paths/register src/Bootstrap.ts",
+    "run:dev": "ts-node-dev --respawn --transpile-only --no-notify -r tsconfig-paths/register src/Bootstrap.ts",
     "test:repository": "jest ./User.repository.spec.ts --watch",
     "test:service": "jest ./User.service.spec.ts --watch",
     "test:controller": "jest ./User.controller.spec.ts --watch",
